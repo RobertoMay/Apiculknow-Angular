@@ -1,1 +1,91 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 mt-5">
+            <h1 class="d-flex justify-content-center mb-5">Regístrate</h1>
+            <div class="sign-in d-flex justify-content-between">
+
+                <div class="no-content col-md-3 d-flex flex-column align-items-center justify-content-center" *ngIf="screenWidth >= 767">
+                        <div class="img mb-2"></div>
+                        <button type="submit" class="btn btn-login" (click)="toLogin()">Iniciar sesión</button>
+                </div>
+
+                <form class="col-lg-7 col-md-8 col-sm-12 col-xs-1" [formGroup]="form" (ngSubmit)="signIn()">
+                    <div class="form-group mb-2">
+                        <label for="username">Nombre</label>
+                        <input type="text" class="form-control" id="username" placeholder="" formControlName="name"
+                            [ngClass]="{ 'is-invalid': form.get('name').touched && form.get('name').invalid }">
+                        <ng-container *ngIf="form.get('name').touched && form.get('name').errors">
+                            <div class="form-text text-danger" *ngIf="form.get('name').errors.required">
+                                Ingrese su nombre
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="lastname">Apellido</label>
+                        <input type="lastname" class="form-control" id="lastname" placeholder=""
+                            [ngClass]="{ 'is-invalid': form.get('lastName').touched && form.get('lastName').invalid }"
+                            formControlName="lastName">
+                        <ng-container *ngIf="form.get('lastName').touched && form.get('lastName').errors">
+                            <div class="form-text text-danger" *ngIf="form.get('lastName').errors.required">
+                                Ingrese su apellido
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="phone">Teléfono</label>
+                        <input type="phone" class="form-control" id="phone" placeholder="" formControlName="phone"
+                            [ngClass]="{ 'is-invalid': form.get('phone').touched && form.get('phone').invalid }"
+                            maxlength="10">
+                        <ng-container *ngIf="form.get('phone').touched && form.get('phone').errors">
+                            <div class="form-text text-danger" *ngIf="form.get('phone').errors.required">
+                                Ingresa su número de teléfono
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="address">Dirección</label>
+                        <input type="address" class="form-control" id="address" placeholder="" formControlName="address"
+                            [ngClass]="{ 'is-invalid': form.get('address').touched && form.get('address').invalid }">
+                        <ng-container *ngIf="form.get('address').touched && form.get('address').errors">
+                            <div class="form-text text-danger" *ngIf="form.get('address').errors.required">
+                                Ingrese su dirección
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" placeholder="" formControlName="email"
+                            [ngClass]="{ 'is-invalid': form.get('email').touched && form.get('email').invalid }">
+                        <ng-container *ngIf="form.get('email').touched && form.get('email').invalid">
+                            <div class="form-text text-danger" *ngIf="form.get('email').invalid">
+                                Ingrese un correo electrónico valido
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="password">Constraseña</label>
+                        <input [type]="changeType?'password':'text'" class="form-control" id="password" placeholder=""
+                            [ngClass]="{ 'is-invalid-password': form.get('password').touched && form.get('password').invalid }"
+                            formControlName="password">
+                        <span class="eyeicon" (click)="viewPass()"
+                            [ngClass]="{ 'invalid-eye': form.get('password').touched && form.get('password').invalid }"><i
+                                [ngClass]="visible?'bi bi-eye':'bi bi-eye-slash'"></i></span>
+                        <ng-container *ngIf="form.get('password').touched && form.get('password').invalid">
+                            <div class="form-text text-danger" *ngIf="form.get('password').invalid">
+                                Ingrese una contraseña con al menos 7 caracteres
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" class="btn mb-2">Crear cuenta</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mobile-message">
+        <p>¡Descarga nuestra aplicación para dispositivos móviles!</p>
+    </div>
+</div>
