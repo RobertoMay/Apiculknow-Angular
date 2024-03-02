@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #faee87;
+    font-size: 17px;
+    overflow: auto;
+}
+
+.img {
+    width: 300px;
+    height: 250px;
+    background-image: url(../../../assets/logo.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn {
+    background-color: #d3d2c9;
+    border: none;
+    transition: background-color 0.3s;
+    font-size: 17px;
+}
+
+.btn-login {
+    width: 125px;
+}
+
+.btn:hover {
+    background-color: #b0af9d;
+}
+
+.btn:active {
+    background-color: #8c8b7a;
+}
+
+.form-control:focus {
+    border-color: #bcbab2;
+}
+
+.form-group {
+    position: relative;
+}
+
+.eyeicon {
+    position: absolute;
+    right: 15px;
+    top: 28px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.form-text {
+    margin: 0;
+    padding: 0;
+}
+
+.is-invalid:focus {
+    border-color: #dc3545;
+}
+
+.is-invalid-password {
+    border-color: #dc3545;
+}
+
+.invalid-eye {
+    color: red;
+}
+
+
+.is-invalid-password:focus {
+    box-shadow: 0 0 1px 4px rgb(242, 187, 116);
+    border-color: #dc3545;
+}
+
+@media screen and (max-width: 2000px) {
+    .mobile-message {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .no-content {
+        margin-right: 100px;
+    }
+}
+
+@media (max-width: 850px) {
+    .img {
+        width: 200px;
+        height: 150px;
+    }
+    .no-content {
+        margin-right: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .btn {
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .mobile-message {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    .container {
+        padding-bottom: 60px;
+    }
+}
